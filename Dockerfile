@@ -11,5 +11,7 @@ RUN mkdir -p /etc/supervisor/conf.d \
 
 COPY supervisord-entrypoint.sh /scripts/
 
-ENTRYPOINT ["tini", "--", "supervisord-entrypoint.sh"]
-CMD ["-c", "/etc/supervisor/supervisord.conf"]
+#ENTRYPOINT ["tini", "--", "supervisord-entrypoint.sh"]
+#CMD ["-c", "/etc/supervisor/supervisord.conf"]
+
+CMD supervisord -c /etc/supervisor/supervisord.conf && bash
